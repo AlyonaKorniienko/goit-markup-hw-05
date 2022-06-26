@@ -99,7 +99,6 @@ body {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  /* outline: 2px solid teal; */
 }
 
 .button {
@@ -243,9 +242,7 @@ body {
   padding-top: 32px;
   padding-bottom: 32px;
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav.link:hover,
@@ -272,18 +269,14 @@ body {
   align-items: center;
   color: var(--main-text-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-btn-icon {
   margin-right: 10px;
   fill: currentColor;
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact:hover,
@@ -332,9 +325,7 @@ body {
 }
 
 .hero-btn {
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -478,9 +469,7 @@ body {
   border-radius: 50%;
   color: #afb1b8;
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-item:not(:last-child) {
@@ -495,9 +484,7 @@ body {
 .team-social-icon {
   fill: currentColor;
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-link:hover .team-social-icon,
@@ -520,14 +507,11 @@ body {
   height: 92px;
   align-items: center;
   justify-content: center;
-  /* padding: 16px 32px; */
   border: 1px solid var(--border-client-cl);
   border-radius: var(--border-radius);
   color: #afb1b8;
 
-  transition-property: border;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-card-link:hover,
@@ -542,13 +526,11 @@ body {
 .client-icon {
   fill: currentColor;
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.client-card:hover .client-icon,
-.client-card:focus .client-icon {
+.client-card-link:hover .client-icon,
+.client-card-link:focus .client-icon {
   fill: var(--accent-color);
 }
 
@@ -635,9 +617,7 @@ body {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item:not(:last-child) {
@@ -702,16 +682,13 @@ body {
   flex-wrap: wrap;
 }
 
-.works .item {
-  cursor: pointer;
-
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.work-link {
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.works .item:hover,
-.works .item:focus {
+.work-link:hover,
+.work-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -734,6 +711,8 @@ body {
 .work + p {
   font-size: 16px;
   line-height: 1.88;
+  letter-spacing: 0.03em;
+  color: var(--main-text-color);
 }
 
 .item-desr-wrap {
@@ -768,12 +747,11 @@ body {
 
   color: #ffffff;
 
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.works .item:hover .work-label {
+.work-link:hover .work-label,
+.work-link:focus .work-label {
   transform: translateY(0);
 }
 
@@ -796,25 +774,36 @@ body {
 }
 
 .backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.1);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 528px;
   height: 581px;
   padding: 8px;
 
   background: var(--main-bg-color);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn {
-  display: block;
+  display: flex;
+  width: 30px;
+  height: 30px;
   margin-left: auto;
-  fill: currentColor;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
 }
